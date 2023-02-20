@@ -39,32 +39,20 @@
 
   <script type="module" src="./src/team-card.js"></script>
   <script>
-    const duplicateFunction = function () {
+    const function1 = function () {
   console.log(btn);
+  
   const div1 = document.querySelector(".card");
   var child = document.body.appendChild(div1.cloneNode(true));
-  child.classList.add("card2");
+  child.classList.add('card2');
   console.log(child);
 };
-const btn = document.querySelector(".duplicate");
-btn.addEventListener("click", duplicateFunction);
+const btn = document.getElementById("duplicate");
+btn.addEventListener("click", function1);
 
-
-function changeHeading() {
- document.querySelector(".h1").innerHTML = "#3 Bryce Harper";
-  }
-
-
-document.querySelector(".card").addEventListener('mouseover', (event) => {
-  document.querySelector(".card").style.backgroundColor = "grey"
-});
-document.querySelector(".card").addEventListener('mouseout', (event) => {
-  document.querySelector(".card").style.backgroundColor = "#F5F5DD"
-});
-
-const changecolor = document.querySelector(".bg-color");
-changecolor.addEventListener("click", function (e) {
-  console.log("I changed the background color");
+const btn2 = document.getElementById("bg-color");
+btn2.addEventListener("click", function (e) {
+  console.log("i clicked button 2");
   if (document.querySelector(".card").style.backgroundColor == "white") {
     document.querySelector(".card").style.backgroundColor = "red";
   } else {
@@ -73,22 +61,14 @@ changecolor.addEventListener("click", function (e) {
 });
 
 
-function deleteLast() {
-  var x = document.querySelector(".card2");
-  x.remove(0);
+function myFunction2() {
+  document.querySelector("h4").innerHTML = "Something else";
 }
 
-const cardDescription = document.querySelector(".description");
-const detailsButton = document.querySelector(".details");
-
-detailsButton.addEventListener("click", (e) => {
-  if (cardDescription.style.display === "none") {
-    cardDescription.style.display = "block";
-    detailsButton.textContent = "Hide Details";
-  } else {
-    cardDescription.style.display = "none";
-    detailsButton.textContent = "Show Details";
-  }
+document.getElementById("delete()").addEventListener('click', function(e) {
+  const card = document.querySelectorAll(".card");
+  const lastCard = card[card.length - 1];
+  lastCard.remove();
 });
   </script>
 </body>
