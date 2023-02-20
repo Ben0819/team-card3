@@ -13,19 +13,84 @@
       margin: 0;
       padding: 0;
       font-family: sans-serif;
-      background-color: #ededed;
+      background-color: #fdfbfb;
     }
+   
   </style>
-  <title>team-card3</title>
+  <title><team-card3></team-card3></title>
 </head>
 
 <body>
+  <div class="buttons">
   <button id="bg-color">Background Color</button>
   <button onclick="myFunction2()"> Change Heading</button>
   <button id="delete()">Remove card</button>
-  <team-card3></team-card3>
+  <button id="duplicate">Replicate</button>
+  </div>
+  
+  <team-card3 top="cooking">
+    <img slot="imagelocation" src="https://sportshub.cbsistatic.com/i/r/2022/06/10/139ab78f-d458-4a66-9179-0312585bfbfa/thumbnail/1200x675/f403faf31c079bf1f1206f8e8b96660e/tastumcbs.jpg" />
+    <ul>
+      <li>103-90 Warriors</li>
+    </ul>
+  </team-card3>
+  
+  
 
-  <script type="module" src="./src/team-card3.js"></script>
+  <script type="module" src="./src/team-card.js"></script>
+  <script>
+    const duplicateFunction = function () {
+  console.log(btn);
+  const div1 = document.querySelector(".card");
+  var child = document.body.appendChild(div1.cloneNode(true));
+  child.classList.add("card2");
+  console.log(child);
+};
+const btn = document.querySelector(".duplicate");
+btn.addEventListener("click", duplicateFunction);
+
+
+function changeHeading() {
+ document.querySelector(".h1").innerHTML = "#3 Bryce Harper";
+  }
+
+
+document.querySelector(".card").addEventListener('mouseover', (event) => {
+  document.querySelector(".card").style.backgroundColor = "grey"
+});
+document.querySelector(".card").addEventListener('mouseout', (event) => {
+  document.querySelector(".card").style.backgroundColor = "#F5F5DD"
+});
+
+const changecolor = document.querySelector(".bg-color");
+changecolor.addEventListener("click", function (e) {
+  console.log("I changed the background color");
+  if (document.querySelector(".card").style.backgroundColor == "white") {
+    document.querySelector(".card").style.backgroundColor = "red";
+  } else {
+    document.querySelector(".card").style.backgroundColor = "white";
+  }
+});
+
+
+function deleteLast() {
+  var x = document.querySelector(".card2");
+  x.remove(0);
+}
+
+const cardDescription = document.querySelector(".description");
+const detailsButton = document.querySelector(".details");
+
+detailsButton.addEventListener("click", (e) => {
+  if (cardDescription.style.display === "none") {
+    cardDescription.style.display = "block";
+    detailsButton.textContent = "Hide Details";
+  } else {
+    cardDescription.style.display = "none";
+    detailsButton.textContent = "Show Details";
+  }
+});
+  </script>
 </body>
 
 </html>
